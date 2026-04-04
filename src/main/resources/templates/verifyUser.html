@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <link rel="stylesheet"
+            href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/cosmo/bootstrap.min.css" />
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    </head>
+    <body>
+    <div>
+        <h2>Verify to DELETE Your Account</h2>
+
+        <form th:action="@{/deleteUser}" method="post">
+            Password:
+            <input type="password" id="password" name="password" />
+            <button type="submit">Enter</button>
+        </form>
+    </div>
+</body>
+</html>
