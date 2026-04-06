@@ -12,7 +12,6 @@ import jakarta.servlet.http.HttpSession;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 
 
 
@@ -47,19 +46,5 @@ public class LoginController {
     public String logoutUser(HttpSession session) {
         session.invalidate();
         return "redirect:/";
-    }
-
-    @GetMapping("/deleteUser")
-    public String verifyUser() {
-        return "verifyUser";
-    }
-    
-    @PostMapping("/deleteUser")
-    public String deleteUser(@RequestParam String password, Model model, HttpSession session) {
-        if (service.delUser((String) session.getAttribute("username"), password)){
-            return "redirect:/";
-        }
-        model.addAttribute("error", "Wrong Password");
-        return "verifyUser";
     }
 }

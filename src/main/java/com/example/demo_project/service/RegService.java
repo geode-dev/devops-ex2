@@ -18,7 +18,5 @@ public class RegService {
         Login newUser = new Login(username, password);
         repo.save(newUser);
         return true;
-
     }
-    
 }
