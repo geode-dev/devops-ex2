@@ -1,40 +1,35 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:th="http://www.thymeleaf.org">
+<html>
 <head>
-    <meta charset="utf-8" />
     <title>Create New Student</title>
-    <link rel="stylesheet"
-          href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/cosmo/bootstrap.min.css" />
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </head>
 <body>
 <div align="center">
     <h1>Create New Student</h1>
     <br />
     <div class="col-sm-4">
-        <form action="#" th:action="@{/save}" th:object="${student}" method="post">
+        <form action="save" method="post">
             <!-- FIX: Replaced invalid tr/td-outside-table with a proper table structure -->
             <table>
                 <tr>
                     <td><label class="form-label">Student Name</label></td>
                     <td>
-                        <input type="hidden" th:field="*{id}" />
-                        <input type="text" th:field="*{studentname}" class="form-control"
+                        <input type="hidden" name="id" />
+                        <input type="text" name="studentname" class="form-control"
                                placeholder="Student Name" />
                     </td>
                 </tr>
                 <tr>
                     <td><label class="form-label">Course</label></td>
                     <td>
-                        <input type="text" th:field="*{course}" class="form-control"
+                        <input type="text" name="course" class="form-control"
                                placeholder="Course" />
                     </td>
                 </tr>
                 <tr>
                     <td><label class="form-label">Fee</label></td>
                     <td>
-                        <input type="text" th:field="*{fee}" class="form-control"
+                        <input type="text" name="fee" class="form-control"
                                placeholder="Fee" />
                     </td>
                 </tr>

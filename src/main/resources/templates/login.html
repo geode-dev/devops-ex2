@@ -5,8 +5,8 @@
     </head>
     <body>
         <h1>Login page</h1>
-        <form th:action="@{/login}" method="post">
-            <label for="username">Username</label>:
+        <form action="login" method="post">
+            Username:
             <input type="text" id="username" name="username" autofocus="autofocus" /> <br />
             <label for="password">Password</label>:
             <input type="password" id="password" name="password" /> <br />
@@ -14,7 +14,7 @@
         </form>
         <p th:if="${error}" th:text="${error}" style="color: red;"></p>
         <div align="left">
-            <h3><a th:href="@{/register}">Register</a></h3>
+            <h3><a href="/register">Register</a></h3>
         </div>
     </body>
 </html>

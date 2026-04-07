@@ -1,11 +1,15 @@
 package com.example.demo_project.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 
 import com.example.demo_project.domain.Login;
-import com.example.demo_project.service.LoginService;
+import com.example.demo_project.domain.Student;
+import com.example.demo_project.repository.LoginRepo;
+import com.example.demo_project.repository.CourseRepo;
 
 import jakarta.servlet.http.HttpSession;
 
@@ -18,7 +22,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 @Controller
 public class LoginController {
     @Autowired
-    private LoginService service;
+    private LoginRepo repo;
+
+    @Autowired
+    private CourseRepo studrepo;
 
     @GetMapping("/")
     public String showLoginPage() {
@@ -27,7 +34,8 @@ public class LoginController {
 
     @PostMapping("/login")
     public String loginUser(@RequestParam String username, @RequestParam String password, Model model, HttpSession session) {
-        Login user = service.log(username, password);
+        
+        Login user = repo.findByUsernameAndPassword(username, password);
 
         if (user != null){
             session.setAttribute("username", username);
@@ -38,7 +46,9 @@ public class LoginController {
     }
 
     @GetMapping("/welcome")
-    public String showWelcomePage() {
+    public String showWelcomePage(Model model) {
+        List<Student> studs= studrepo.findAll();
+        model.addAttribute("liststudent",studs);
         return "welcome";
     }
 

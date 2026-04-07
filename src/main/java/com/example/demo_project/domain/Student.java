@@ -12,15 +12,13 @@ public class Student {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    
     private String studentname;
     private String course;
     private int fee;
     
     public Student() {}
 
-    public Student(Long id, String studentname, String course, int fee) {
-        this.id = id;
+    public Student(String studentname, String course, int fee) {
         this.studentname = studentname;
         this.course = course;
         this.fee = fee;
